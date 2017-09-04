@@ -1,0 +1,28 @@
+<div class="col-md-4 col-md-offset-4">
+    <div class="" [hidden]="sub">
+        <form (ngSubmit)=onFormSubmit() #userForm="ngForm">
+        <div class="form-group">
+          <span class="label label-default">name</span>
+          <input type="text" class="form-control"  [(ngModel)]="user.name" #name="ngModel" name="name" required>
+          <span class="btn btn-danger">username required</span>
+        </div>
+        <div class="form-group">
+          <label for="">location</label>
+          <input type="text" class="form-control" [(ngModel)]="user.location" #location="ngModel" name="location" required>
+        </div>
+        <div class="form-group">
+            <label for="">type</label>
+            <input type="text" name="type" class="form-control" [(ngModel)]="user.type" #type="ngModel"  required >
+         </div>
+        <button type="submit" class="btn btn-primary" (click)=onClick()>Submit</button>
+        <button type="newinput" class="btn btn-default"(click)=onUser()>new input</button>
+      </form>
+    </div>
+    <div [hidden]="!sub">
+        <label for="">name:{{user.name}}</label><br>
+        <label for="">location:{{user.location}}</label><br>
+        <label for="">type:{{user.type}}</label><br>
+        <button class="btn btn-info" (click)=onEdit() >Edit</button>
+    </div>
+    
+</div>
